@@ -5,5 +5,7 @@
 # Custom version of scraperwiki library
 -e git+http://github.com/openaustralia/scraperwiki-python.git@morph_defaults#egg=scraperwiki
 
-lxml==3.4.4
-cssselect==0.9.1
+#lxml==3.4.4
+#cssselect==0.9.1
+ccxt==1.10.252
+pandas==0.21.0
