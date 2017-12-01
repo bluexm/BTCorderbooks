@@ -12,4 +12,4 @@ r = requests.get(morph_api_url, params={
   'query': "select * from obooks"
 })
 
-print r.json()
+print (r.json())
