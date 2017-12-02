@@ -124,13 +124,17 @@ def get_orderbook(ccxtobj,symbol,sourcename):
 
 i=0
 while i<24*3600/FREQ:
+	tstart = datetime.datetime.now()
+	
 	get_orderbook(bgtcn, "BTC/USD", 'gatecoin')	
 	get_orderbook(anx, anx.symbols[0], 'anx')
 	get_orderbook(polo, "BTC/USDT", 'polo')
 	get_orderbook(bmex, "BTC/USD", 'bitmex')
 	get_orderbook(bfix, "BTC/USD", 'bitfinex')
 	
-	time.sleep(FREQ)
+	tend = datetime.datetime.now()
+	
+	time.sleep(max(FREQ -(tend.second-tstart.second),0))
 	i+=1
 	
 if LOCAL_SCRAPING: 
