@@ -80,7 +80,11 @@ exmo_bgtcn   = ccxt.exmo({
 
 def get_orderbook(ccxtobj,symbol,sourcename):
 	global CONNEXION
-	dictbook = ccxtobj.fetch_order_book(symbol)
+	try:
+		dictbook = ccxtobj.fetch_order_book(symbol)
+	except:
+		return False 
+	
 	print("{} storing orderbook ".format(datetime.datetime.now(),"%d/%m/%y %H:%M:%S")+ sourcename)
 	a = pd.DataFrame(dictbook['asks'],columns=['askprice','askqty'])
 	a['rank']=a.index.values
