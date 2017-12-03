@@ -118,7 +118,6 @@ def get_orderbook(ccxtobj,symbol,sourcename):
 					'bidprice':round(di['bidprice'],10), 
 					'askqty':round(di['askqty'],10), 
 					'askprice':round(di['askprice'],10), 
-					
 					})
 			#print("done")
 
@@ -127,7 +126,7 @@ while i<24*3600/FREQ:
 	tstart = datetime.datetime.now()
 	
 	get_orderbook(bgtcn, "BTC/USD", 'gatecoin')	
-	get_orderbook(anx, anx.symbols[0], 'anx')
+	get_orderbook(anx, "BTC/USD", 'anx')
 	get_orderbook(polo, "BTC/USDT", 'polo')
 	get_orderbook(bmex, "BTC/USD", 'bitmex')
 	get_orderbook(bfix, "BTC/USD", 'bitfinex')
